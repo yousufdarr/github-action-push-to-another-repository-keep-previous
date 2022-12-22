@@ -75,6 +75,7 @@ git config --global user.name "$USER_NAME"
 	exit 1
 
 }
+echo "[+] Listing Clone Directory $CLONE_DIR"
 ls -la "$CLONE_DIR"
 
 TEMP_DIR=$(mktemp -d)
@@ -119,7 +120,7 @@ then
 fi
 
 echo "[+] Copying contents of source repository folder $SOURCE_DIRECTORY to folder $TARGET_DIRECTORY in git repo $DESTINATION_REPOSITORY_NAME"
-cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
+cp -ra "$SOURCE_DIRECTORY"/. "$ABSOLUTE_TARGET_DIRECTORY"
 cd "$CLONE_DIR"
 
 echo "[+] Files that will be pushed"
